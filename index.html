@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://sso.my.gov.ir/login -->
+<html lang="fa" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="./index_files/app.css">
+    <title>پنجره ملی خدمات دولت هوشمند - ورود یکپارچه</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="https://sso.my.gov.ir/static/web/assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sso.my.gov.ir/static/web/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sso.my.gov.ir/static/web/assets/images/favicon-16x16.png">
+    <link rel="mask-icon" href="https://sso.my.gov.ir/static/web/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="description" content="«پنجره ملی خدمات دولت هوشمند» یک راه امن برای دسترسی آنلاین به خدمات دولتی از طریق یک درگاه واحد است. این درگاه، پلتفرم ملی یکپارچه ارائه خدمات دولتی و عمومی به مردم بوده و هدف آن ایجاد سهولت در ارائه این خدمات به شهروندان کشور است؛ به‌طوری‌که تنها با یک بار احرازهویت می‌توان خدمات موردنظر را دریافت نموده و یا به سامانه‌های متفاوت ارائه دهنده خدمات وارد شد">
+</head>
+<body>
+
+
+<div class="box">
+
+        <div class="right-section">
+
+<!--            <img id="faq-icon" src="../static/web/assets/images/FaqIcon.png" alt="راهنما">-->
+
+            
+
+            <div class="logo-section">
+
+                <img src="./index_files/IRILogo.png" alt="IRI">
+                <img src="./index_files/SsoTitle.png" alt="">
+<!--                <img src="../static/web/assets/images/iriVote.png" alt="" width="146px" />-->
+            </div>
+<!--            <h1 class="seo-hidden" th:text="#{myiran.title}"></h1>-->
+            <h1 class="seo-hidden">پنجره ملی خدمات دولت هوشمند</h1>
+            <p id="login-title-change" class="description">ورود به سامانه از طریق رمز یکبار مصرف</p>
+
+<!--            <p>The current locale is: <span th:text="${#locale}"></span></p>-->
+<!--            <p>get by javascript: <span id="currentLocaleId"></span></p>-->
+<!--            <script>-->
+<!--              document.getElementById('currentLocaleId').innerHTML="fa";-->
+<!--            </script>-->
+
+            <ul class="tabs">
+                <li class="active" data-target="loginOtp" tabindex="1">کیر خر</li>
+                <li data-target="loginQr" tabindex="2">ورود با کد QR</li>
+            </ul>
+
+
+            <div class="tab-content">
+                <div id="loginOtp" class="active">
+                    <div id="otp-form" style="display:block">
+                        <form class="form" method="POST" action="" id="form" novalidate="" onsubmit="sendOtpService()">
+                        
+                            <label class="custom-inputs">
+                                <span>تلفن همراه</span>
+                                <div>
+                                    <img src="./index_files/PhoneIcon.png" alt="">
+                                    <input inputmode="numeric" type="tel" maxlength="11" class="form-control inputNumber number" id="username" name="username" pattern="[0-9]*" value="" placeholder="تلفن همراه">
+                                </div>
+                            </label>
+                            <div class="errors-holder mt-1">
+                                <p class="text-warning username-error"></p>
+                            </div>
+
+                            <label class="custom-inputs captcha_section">
+                                <span>کد امنیتی</span>
+                                <div>
+                                    <img src="./index_files/CheckedIcon.svg" alt="">
+                                    <input inputmode="numeric" autocomplete="off" maxlength="5" type="text" class="form-control number inputNumber captcha_value" name="captcha_value" pattern="[0-9]*" placeholder="کد امنیتی">
+                                    <div class="captcha-holder">
+                                        <img onclick="getCaptchaService()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAA8CAYAAACJvWQEAAAMS0lEQVR4Xu2de3QU1R3HBxUpgg+sUNqKUnloXxyUWgSSzGw2D0Klx9rmaA9tTZGQppQaLOUUoUAFxAdQ3tksb+oBgVL4B6i1BUUewu6Gh6LtAbTio/VUAxwQPYjZfu+dSZz97d3MJkwys+vvc873LJmd38x37s7v3pl77wyaxjAMwzAMwzAMwzAMwzAMwzAMwzAMwzAM0wrES0svj48eXQUdhS5Ax6BFUC+6LsMwWYZM/oqKffHy8v6yMqio6ANNxvL346NG5dL1GYbJIpDoryLR+yUtLy8fgYogSpczDJNFoAL4MD5uXMek5WVl1+G7s3Q5wzBZBJL8ePzBB3snLS8vL8B3L9DlDMNkEbjMXyzu+ROW4YoAyf8ylt9nX84wTJYhevtlh5+456+s7BIfNSoffx/B3wvougzDZCGitx8Jvx+Jfx6t/i5u+RmGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRimlQgGg18KBAKjDcN4BjoC/Rc6D53Vdf0DfL4OHcA6a/H3OKz/RboNrxg0aFBH+CqGvxnwthyfW6C/QOvwdw00E6qEAkOGDLmaxvsF+O0O/a4p4TgH0jjGHfLy8vrQ8lboOzQuFVj3HkW8/bf8IY1pc4qLi6+HmUXQR1C8GRpKt9XWFBUVdUNSPwEvZxX+UukiYv6Bz7vp9rymtLT0cnh7R+HZrp00jnGHgoKCa1H+HyrK3K7dNC4VWPegIt6ulTSmTcHBDoKJkwpj6cjTCkDUnvBQp/CVtrCNuXS7XgNPj1KfRPU4UW+hcYw7oHxXKso8Qfn5+d+lcZScnJwuWPcCjSWaTuPaDOy8v9G8lpPKswoA+56q8NNSJTyp6DVI7ptQMX+q8GmXdydOlmM1irS8E4RKeg2No2A7P6dxCpXROEdqou21ZbHeWqg2qIUjI/GZ9i2JnXYweFhhqDnypAKwWn7qpcWykq1FhdhawM826pPoOI1h3MMw+8Bomdv1SV5e3rdpnI12WKdWEZcgnMsDaKC2+GhnLXzgm1ooMgzJXqmFo49rNbF1Wk1kL/5+B4onKjaVbsIR7HwoNdMCeVIBYL/HFF4uSagE9tD9eAk8jaAeFepP4xh3MMxOOlreVCdx3ijfaYnvpivWT5CeHzx3WfW+CUjwBdAWJPNB6IPkBE9SPfQGYnbic5UWig2n+3cEBuZRQ1Q4uBP4rMD9Ti98dhYdJLm5uV/G33fgu0rUgLfT7bY2wWCwH/WpUP1tIyec7TeiYiL+PQl6V7FOknA8X6f78wr46ZxGZxTfBrQSKNueivJOpVegarTmU3KDBU/mFRS+rFgnSb1/MYUmdoPOQ/+EntVC0TBa/klI8p9oS2O5WHYT9doiYOB5aojoOHQdjfMaeHpA4ZWqCgX1sbZ8txzus0YK/qVYj+o3dH9eghNqg8Jjo3BMR2kM4x4o4320zN1SbkHRp1fN2b4Vl+9zoSok+L3yXn5FbVfqo1UwzForyZhNvuoYawAn/TiF10bh+zPTpk27DBXAm6gxG++vRK8tXVchb4dkCKgA7lV4TBCuWnrQOKaFiNY1fGAwPkvR6o7rUz5pJy1vtySuoOnu2xSYeI2aIgYn0hg/YE1USvJr07tyxZpYSHae2MAxvaBY3y5fja+LCUuGwzASymMkjWMI8Xg7rfpgTyR2Dlra+3BZ/bDZ8kY34HOPbCySL8PjHWdvTypvl7SQWmxzYOJvCmN2PUdj/ACSOKDwmiCsU2L94HWo0fWGWHw3i65L4nx3SW0436qtozGfK2SP+f6+WnXEwO/9gHm/HF1sdqpFIpqy1zyl3oZeQtwmfM7HNsbnFBS/pyjzlkpMtPPHbaaRXi/nj2icndzc3K64tB5Ml7cmAwYMaG84T/45LW4Vejw0+5dXLHzxFH7QJ/GD3pFTOGyMYl273qf78xrD+Xf6H1ZrR+OyAlGJL43dJe+Pa2Jj8DvORHKvxG+5QzM7yc4okjiV3pTDaOHoRmxjnkhuLRy5X3asif2IqwQFuMJaoihzu8S5Ngefbyu+a9BbYsKZmN9Bt+8ZhYWFX9Gde5k/0c1ptv1FRxoO4lb8/QPR24llu3Vz/HwL3XZrI25PFF5TSg/kXxxSNOzikOLvJX1HVC8qGLo/LxHjxAqfVLfROF+zrPZmXJndKYevwrFyOY5dE1mBz21I1FroP4oETiXRY37cHBKLrcG/ZyHBx5qVRnSgtvSlG+num0M6/TBoBL8q1hUjZFh/IM7PQiwfKhpHkWd0m74BRsfSg2mB2rwCKCkp6YD9vqjw4oZ60v15CfxcYTg8o+GLfoCa6FWyJRW3XLITTbTY0UetFvtZ6NANk1fV9SmfFE+lmx96gib3SST2fmuMfAn0e01c5osZcKHab2grD7b6KJVIblreVKKSoHEZAyqB+fSAmqk2rwAE1jzrHQo/l6ocui+vgae9Cp92LaMxriCmnDZchodjd8vkM1vrRUjs9dZElNehcyRxlframOnUd4JyCovNkZvqQ7JF9Qu688NZs2hMRoEa7GHD+b46lTypAATiyTl4n4Af6IzCV0t1P92P1xjOk7ZepTEpWbb3ejmP3Ow0Ey31aDOpYyFbUp+ATtMEdtBHmpidForusjrRlpjbFS12bCj2d/vgocOdGptXqF0/YJiPllOvdv2dxmQcSKYrxVg5EmqN4gCbkmcVQAPivQSGOePvLYW/ZgnH/wjdvteggiunPu0SfTEdZm8v1mRCR0dZCb1Q3hObCX0Y+rciaZ10UTOnnIrL8K3W5by4rB8rO9DMSqRXw4QrJ+B1BvVO5MsKAOU7U+HVXv7v0ZiMo6ioqJNhvggk6QCbUJ1ogem2vEJMAIIfHVpgmA9znFN4blKIXUG32yYsONbBuofuLxMrFPmxfNILydx9wuL11CdVp6e20uRNpTpNtPBmp9mfzammsqWulGPkYt/iCmHJkS7U4qViZGgFAF9lCq9UnWlcxmC9EMTpxQVSorWBNiFRiv3WY64Cnr8A3QDdaD1m6/QE5C66jbQRnVL2JK6J3qOZ981VMsnEQx+yFY1st1rm41oaLXPH2X+lHpPUbfLyw3KIqya23EroX8t9Cx/ST+qhrrbCyNAKAFfG+QqvCRIjZDTOf4hhEfl4YWyEPDGqI9+6+rGtfY1AIEIPSCUkj2iJkv6b70wi4DC/Pi+/oE7es8rEhcLRiTKhQtGnZPKGo6tl8poJfEwTl8hpdoI56GPN3NYhq3UWj3+KobGpV87fKW5vkrwSjaDH6jeMDK0AxENiCq8J0lM8FegvzJYh4cTrXTEl6WCokBQXelTN3WbdW5oKx8q0hiRpkFmpuCtxWUr3IxX7baKf6HSZoA1quP/9LFnFxJE3bqmcdooeH1X7+c83lk8zdUrsQxOPdZr73Gz5mWdVImM14T0cKZHHJi61xZh4GhjmuxmTvNr0KxrjN4wMrQCsPibqNUFoWL5P4/yHbNnkHPm14gS9ZtbmE7oRSDoYu3ILiuLXTt9AT/SMVdfJK5OOkarb5FX7P6tIIjOtCma8JpI3FPlZY+Uke9Nxab3mcCda1G5jND3TTGgSjfEb1qSaVU1oBo3xA6JvCd7qjeQybxSuAH5K43wPjD9HD4Tq1rLxy+SJLyd22Fpce2vbmCzRHQmtrhsKRZ9O2o+5r1kJfmpij5g+LYnnpxOuJA72Ecnau/JRnR6jQlW0rLzGcHh6E8n1GI1h3EN3GGrWvX66r7kY6b0RaDONywLEq5pOK47V/mOupkFeA0/7qU+ieTSGcQ/deTKQPx7ySRfD+SkzMYTWncZlA4bzDMLXaIzX6OZrzKlPu6ppDOMeusMLZfw4fyQlOJg76QEo1PwXDWYIuvmAEz1eu+pLSkquoXFeAs9bFT4b5dn8hc8JusPwMb7/A43xLeJkoQdAVCcmBtG4bCGQxluFxdgvjfMSnGCbqEe7xAxOGsO4h9MtWMb0wVhP0jU5FBbw4X+W4SbpPOFl+OyVaLo5B4N6tP9ma2kM4x4o/z20zO0SV5U0xpfA6HBqnioYDPalcdmG4fzcgK/eiAQ/Tys82vUMjWHcw3DuM5tNY3yJbr69hJpvlO7D12K1BjjWjfTYic75aaoz/PxJ4dH+u62nMYx7oIx30jIn5T+HxvgSw/lVx5lRk10iusPbhS3dReO8An5XK/zZtZHGMO6hO4/C/JHGMAzDMAzDMAzDMAzDMAzDtBr/BwOE4bqEMOJ7AAAAAElFTkSuQmCC" class="captcha" alt="در حال بارگذاری ..." title="کد امنیتی جدید">
+                                        <img onclick="getCaptchaService()" src="./index_files/RefreshIcon.svg" role="button" alt="بارگذاری مجدد" title="بارگذاری مجدد">
+                                        <img onclick="getCaptchaVoiceService()" src="./index_files/audioCaptcha.png" role="button" alt="تصویر امنیتی صوتی" title="تصویر امنیتی صوتی">
+                                    </div>
+                                    <input type="hidden" class="captcha_key" name="captcha_key" value="d66a1120-919d-467d-96ba-65b2208ebee0">
+                                </div>
+                            </label>
+                            <div class="errors-holder mt-1">
+                                <p class="text-warning username-error"></p>
+                            </div>
+
+                            <a target="_self" href="https://sso.my.gov.ir/terms" class="downloadTerms">مطالعه بیانیه حریم خصوصی</a>
+
+                            <div class="col-span-12 text-center errors-holder">
+                                
+                                
+                                
+
+                            </div>
+
+                            <div class="actions">
+                                <button disabled="" id="send-otp-form-btn" type="button" class="btn" onclick="sendOtpService()" data-init-text="ارسال رمز یکبار مصرف">
+                                    <img src="./index_files/SendIcon.svg" alt="">
+                                    <span>ارسال رمز یکبار مصرف</span>
+                                </button>
+                            </div>
+
+                            <ul class="links">
+
+                                <!--    <li>-->
+                                <!--      <a href="#" class="faq-icon">-->
+                                <!--        سوالات متداول-->
+                                <!--      </a>-->
+                                <!--    </li>-->
+                                <!--    <li>-->
+                                <!--      <a download target="_blank" href="https://file.my.gov.ir/static/help/MyGov-Login-Help.pdf">-->
+                                <!--        راهنمای سامانه-->
+                                <!--      </a>-->
+                                <!--    </li>-->
+
+
+                                <li>
+                                    <a download="" target="_blank" href="https://file.my.gov.ir/static/help/MyGov-Login-Help.pdf">
+                                        <img src="./index_files/InfoIcon.png" title="راهنمای سامانه" alt="راهنمای سامانه">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://sso.my.gov.ir/login#" class="faq-icon">
+                                        <img src="./index_files/messageQuestionIcon.png" title="سوالات متداول" alt="سوالات متداول">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://my.gov.ir/contact-us" target="_blank">
+                                        <img src="./index_files/PhoneIcon(1).png" title="تماس با ما" alt="تماس با ما">
+                                    </a>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="https://sso.my.gov.ir/login/lang=en" onclick="return false">
+                                        <img src="./index_files/LangIcon.png" title="انتخاب زبان" alt="انتخاب زبان">
+                                    </a>
+                                    <ul class="submenu" data-selected="fa">
+                                        <li>
+                                            <a href="https://sso.my.gov.ir/login?lang=fa">
+                                                فارسی
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://sso.my.gov.ir/login?lang=en">
+                                                English
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </form>
+                    </div>
+
+                    <div id="otp-submit" style="display:none">
+                        <form method="post" action="" id="form-otp-submit" class="mt-3 form" novalidate="">
+                            <div class="userInput">
+                                <input inputmode="numeric" autocomplete="off" type="text" pattern="\d*" class="first number" maxlength="1" required="" aria-label="عدد اول">
+                                <input inputmode="numeric" autocomplete="off" type="text" pattern="\d*" class="second number" maxlength="1" required="" aria-label="عدد دوم">
+                                <input inputmode="numeric" autocomplete="off" type="text" pattern="\d*" class="third number" maxlength="1" required="" aria-label="عدد سوم">
+                                <input inputmode="numeric" autocomplete="off" type="text" pattern="\d*" class="fourth number" maxlength="1" required="" aria-label="عدد چهارم">
+                                <input inputmode="numeric" autocomplete="off" type="text" pattern="\d*" class="fifth number" maxlength="1" required="" aria-label="عدد پنجم">
+                            </div>
+                            <input type="hidden" name="password" class="password_final">
+                            <input type="hidden" name="_csrf" value="1sS7d94E6N-TiM_FVTRrQzDy8deP_l9aouEoFP5q7-BVAfBX5vWLFu4xie6-vPjyMxlfcAST3LbryG93kIVKcpxdi4RtOcA1" header="X-CSRF-TOKEN">
+                            <input type="hidden" name="username" class="username_final" value="">
+
+                            <div class="col-span-12 text-center errors-holder">
+                                
+                                
+                                
+
+                            </div>
+<!--                            <p  class="otp-description" th:text="#{login.otp.phonenumber}"></p>-->
+                            <div>
+                                <h class="otp-description">کد فعالسازی 5 رقمی به تلفن همراه </h>
+                                <span id="otp-mobile-holder" style="color:#48ACDE;" class="mobile otp-description"></span>
+                                <h class="otp-description">ارسال شده است</h>
+                            </div>
+                            <p style="text-align: center; font-size: 12px;padding: 0px 4px">تمامی پیامک‌های ارسالی از طریق این سامانه با سرشماره و مسک MGOV ارسال می شود، لطفا برای حفظ امنیت خود از در اختیار قراردادن محتویات پیامک‌های دریافتی به دیگران جداً خودداری نمایید.  همچنین پیامک‌های دریافتی در خصوص پنجره ملی خدمات دولت هوشمند بدون مسک MGOV و از دیگر سرشماره‌ها جعلی بوده و لطفا به آن اعتنایی نکنید.</p>
+                            <div class="actions">
+                                <button disabled="" id="submitLogin" type="button" class="btn" data-init-text="ارسال کد فعال سازی">
+                                    <img src="./index_files/SendIcon.svg" alt="">
+                                    <div class="timer">
+                                        <span class="minutes">00</span> :
+                                        <span class="seconds">00</span>
+                                    </div>
+                                </button>
+
+                                <!-- <a
+                                  target="_blank"
+                                  style="padding: 0.5rem 2rem"
+                                  href="../statica/web/docs/راهنمای_ورود به_پنجره_ملی خدمات_دولت_هوشمند.pdf"
+                                  type="button"
+                                  class="mt-1 btn btn-outline-secondary btn-submit rounded-pill text-md-white"
+                                  >دانلود فایل راهنما</a
+                                > -->
+                            </div>
+                        </form>
+
+                        <div class="form-description">
+<!--                            <h2 th:text="#{login.otp.help.title}"></h2>-->
+<!--                            <h th:utext="#{login.formDescription.mobile.pre}"></h>-->
+<!--                            <span id="otp-mobile-holder" class="mobile" th:utext="${mobile}"></span>-->
+<!--                            <h th:utext="#{login.formDescription.mobile.post}"></h>-->
+
+                            <p style="color:#000; line-height: 1.8;">در صورت عدم دریافت کد فعالسازی از طریق پیامک، می‌توانید با شماره‌گیری  کد دستوری <span style="direction:ltr; color:#48ACDE">#40*4*</span>  بر روی تلفن همراه خود ،جهت دریافت آن اقدام نمایید یا با کلیک بر روی ارسال ایمیل کد فعالسازی را در ایمیل ملی دریافت نمایید.</p>
+                            <button id="send-otp-email" class="btn btn-2">ارسال ایمیل</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="loginQr">
+                    <form method="post" action="" id="form-otp-submit-qr" class="mt-3 form" novalidate="">
+                       <div id="qr-image" class="">
+                           <span id="retry-otp">
+                               <img src="./index_files/RetryIcon.png" alt="دریافت مجدد کد">
+                               <p>دریافت مجدد</p>
+                           </span>
+                           <img src="./index_files/QrCodeIcon.png" id="qr-code-image" alt="QR Placeholder">
+                       </div>
+
+                        <input type="hidden" name="qr-code-key" id="qr-code-key">
+
+                        <div class="timer" style="margin-top: 1rem">
+                            <span class="minutes">00</span> :
+                            <span class="seconds">00</span>
+                        </div>
+
+                        <input type="hidden" name="password" class="password_final">
+                        <input type="hidden" name="username" class="username_final" value="">
+
+                        <div class="col-span-12 text-center errors-holder">
+                            
+                            
+                            
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+            </div>
+            <div id="swipeDownloadApp">
+                <!--                <img th:if="${#strings.equals(#locale, 'fa')}" src="../static/web/assets/images/DownloadAppIconMobile.png" alt="">-->
+                <!--                <img th:if="${#strings.equals(#locale, 'en')}" src="../static/web/assets/images/DownloadAppIconMobileEnglish.png" alt="">-->
+                <p>دانلود اپلیکیشن</p>
+                <img src="./index_files/swipeDown.png" alt="">
+            </div>
+        </div>
+        <div class="left-section">
+            <img class="logo" src="./index_files/ITOLogo.png" alt="ITO">
+
+            <div class="carousel">
+
+  <ul class="links">
+
+
+      <!--    <li>-->
+      <!--      <a href="#" class="faq-icon">-->
+      <!--        سوالات متداول-->
+      <!--      </a>-->
+      <!--    </li>-->
+      <!--    <li>-->
+      <!--      <a download target="_blank" href="https://file.my.gov.ir/static/help/MyGov-Login-Help.pdf">-->
+      <!--        راهنمای سامانه-->
+      <!--      </a>-->
+      <!--    </li>-->
+
+
+      <li>
+        <a download="" target="_blank" href="https://file.my.gov.ir/static/help/MyGov-Login-Help.pdf">
+          <img src="./index_files/InfoIcon(1).png" title="راهنمای سامانه" alt="راهنمای سامانه">
+        </a>
+      </li>
+      <li>
+        <a href="https://my.gov.ir/faq" target="_blank">
+          <img src="./index_files/messageQuestionIcon(1).png" title="سوالات متداول" alt="سوالات متداول">
+        </a>
+      </li>
+      <li>
+          <a href="https://my.gov.ir/contact-us" target="_blank">
+              <img src="./index_files/PhoneIcon(2).png" title="تماس با ما" alt="تماس با ما">
+          </a>
+      </li>
+
+      <li class="dropdown">
+          <a href="https://sso.my.gov.ir/login#">
+              <img src="./index_files/LangIcon(1).png" title="انتخاب زبان" alt="انتخاب زبان">
+          </a>
+          <ul class="submenu" data-selected="fa">
+              <li>
+                  <a href="https://sso.my.gov.ir/login?lang=fa">
+                      فارسی
+                  </a>
+              </li>
+              <li>
+                  <a href="https://sso.my.gov.ir/login?lang=en">
+                      English
+                  </a>
+              </li>
+          </ul>
+      </li>
+
+      
+<!--      <select onchange="return handleLanguage()" name="lang" id="lang_select">-->
+
+<!--          <option-->
+<!--                  th:value="fa"-->
+<!--                  th:text="Farsi"-->
+<!--                  th:selected="${#strings.equals(#locale, 'fa')}"-->
+<!--          ></option>-->
+<!--          <option-->
+<!--                  th:value="en"-->
+<!--                  th:text="English"-->
+<!--                  th:selected="${#strings.equals(#locale, 'en')}"-->
+<!--          ></option>-->
+
+<!--      </select>-->
+
+    </ul>
+
+
+  <div class="item" style="opacity: 1; z-index: 1;">
+    <img src="./index_files/AppPreview.png" alt="اپلیکیشن MyGov">
+    
+    <p class="-top">
+        <span>دانلود اپلیکیشن پنجره ملی خدمات دولت هوشمند</span>
+<!--      <div class="downloads">-->
+<!--    https://file.my.gov.ir/static/app/MyGov.apk-->
+        <a href="https://sso.my.gov.ir/login#" class="downloadApp">
+          <img src="./index_files/downloadLink.svg" alt="دانلود App">
+          
+        </a>
+<!--        <a target="_blank" href="https://myket.ir/app/ir.gov.mygov">-->
+<!--          <img src="../static/web/assets/images/myket 1.png" alt="مایکت">-->
+<!--        </a>-->
+<!--      </div>-->
+    </p>
+  </div>
+  <div class="item" style="opacity: 0; z-index: -1;">
+    <img src="./index_files/Slide3.png" alt="my.gov.ir">
+    <p>با ورود به پنجره ملی خدمات دولت هوشمند از قابلیت‌های دسترسی سریع به خدمات، احراز هویت یکپارچه و حفظ حریم خصوصی کاربران بهرمند شوید.</p>
+  </div>
+  <div class="item" style="opacity: 0; z-index: -1;">
+    <img src="./index_files/Slide1.png" alt="my.gov.ir">
+    <p>دسترسی به خدمات حوزه سلامت، آموزش، اقتصادی، امور عمومی و ثبت نام یارانه با ورود به پنجره ملی خدمات دولت هوشمند.</p>
+  </div>
+  <div class="item" style="opacity: 0; z-index: -1;">
+    <img src="./index_files/Slide2.png" alt="my.gov.ir">
+    <p>ارائه خدمات مستقیم استعلامی و اتصال به سامانه‌های دولتی بدون احراز هویت مجدد.</p>
+  </div>
+  <ul class="indicators">
+    <li class="active">1</li>
+    <li class="">2</li>
+    <li class="">3</li>
+    <li class="">4</li>
+  </ul>
+
+</div>
+        </div>
+    </div>
+
+<div id="landing">
+    <div id="swipeDownloadAppClose">
+        <p>ورود</p>
+        <img src="./index_files/swipeUp.png" alt="Login">
+        <!--        <img th:if="${#strings.equals(#locale, 'fa')}" src="../static/web/assets/images/DownloadAppIconMobileBlue.png" alt="">-->
+        <!--        <img th:if="${#strings.equals(#locale, 'en')}" src="../static/web/assets/images/DownloadAppIconMobileBlueEnglish.png" alt="">-->
+    </div>
+    <img class="appPreview" src="./index_files/AppPreview.png" alt="">
+    <p class="-top">
+     </p><h3>دانلود اپلیکیشن پنجره ملی خدمات دولت هوشمند</h3>
+     <h4>یک درگاه برای ورود و استفاده از تمامی خدمات دولت هوشمند</h4>
+    <div class="downloads">
+        <a href="https://sso.my.gov.ir/login#" class="downloadApp">
+            <img src="./index_files/directLink.png" alt="دانلود مستقیم">
+            
+        </a>
+    </div>
+    <p></p>
+</div>
+
+<!--<div class="modal" id="faqModal">-->
+<!--    <div class="outer">-->
+<!--        <div class="inner">-->
+<!--            <div class="body">-->
+<!--                <img class="close-modal" src="../static/web/assets/images/CloseIcon.svg" alt="بستن">-->
+<!--                <iframe src="https://my.gov.ir/faq" frameborder="0" width="900" height="500"></iframe>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div class="modal" id="socialIcons">
+    <div class="outer">
+        <div class="inner">
+            <div class="body">
+                <img class="close-modal" src="./index_files/CloseIcon.svg" alt="بستن">
+
+                <h3 style="margin-bottom: 1.5rem;font-size: 32px;">دانلود اپلیکیشن</h3>
+                <ul class="app-download">
+                    <li>
+                        <a href="https://file.my.gov.ir/static/app/MyGov.apk">
+                            <img src="./index_files/directDownload.png" alt="دریافت مستقیم">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://myket.ir/app/ir.gov.mygov">
+                            <img src="./index_files/myketDownload.png" alt="مایکت">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://sibapp.com/applications/MyGov">
+                            <img src="./index_files/sibApp.png" alt="سیب اپ">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://iapps.ir/app/%D9%BE%D9%86%D8%AC%D8%B1%D9%87-%D9%85%D9%84%DB%8C-%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%AF%D9%88%D9%84%D8%AA-%D9%87%D9%88%D8%B4%D9%85%D9%86%D8%AF-%D8%AF%D9%88%D9%84%D8%AA-%D9%85%D9%86-/964465353">
+                            <img src="./index_files/iApps.png" alt="آی اپ">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.charkhoneh.com/content/990626923">
+                            <img src="./index_files/charkhoone.png" alt="چارخونه">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://cafebazaar.ir/app/ir.gov.mygov/">
+                            <img src="./index_files/bazar.png" alt="بازار">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sibche.com/applications/mygov/">
+                            <img src="./index_files/sibche.png" alt="سیبچه">
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="copyright">-->
+<!--    <p>-->
+<!--        <img src="../static/web/assets/images/ITOLogoBlue.png" alt="ITO">-->
+<!--        Powered by ITO-->
+<!--    </p>-->
+<!--    <p>کلیه حقوق این درگاه‌ها متعلق به دولت جمهوری اسلامی ایران است.</p>-->
+<!--</div>-->
+<div id="toast">
+    <div class="toast-icon">
+        <img src="./index_files/Checked-box.png" alt="">
+    </div>
+    <div class="toast-description">
+        <h3>خطا</h3>
+        <p></p>
+    </div>
+</div>
+<script>
+    const otp = false;
+    const mob = "";
+    const lang = "fa";
+
+    const csrf_parameterName="_csrf";
+    const csrf_token="1sS7d94E6N-TiM_FVTRrQzDy8deP_l9aouEoFP5q7-BVAfBX5vWLFu4xie6-vPjyMxlfcAST3LbryG93kIVKcpxdi4RtOcA1";
+    const csrf_headerName="_csrf.headerName";
+
+    const languageProperties = {
+        "messages.internalerrors":"خطای داخلی",
+        "messages.tryagain":"لطفا مجدد تلاش نمایید",
+        "loading":"در حال بارگذاری ...",
+        "messages.mobileIsInvalid":"شماره موبایل وارد شده باید 11 رقمی باشد و با 09 شروع شود",
+        "messages.checkinput":"لطفا اطلاعات وارد شده را بررسی نمایید",
+        "messages.captchaRequired":"لطفا کد فعال سازی را بصورت کامل وارد نمایید",
+        "messages.captchaFetchError":"خطا در ریافت تصویر کد امنیتی",
+        "messages.voiceCaptchaFetchError":"خطا در ریافت صوت کد امنیتی",
+        "buttons.resendOtp":"ارسال مجدد کد فعال سازی",
+        "messages.postalCodeIsInvalid":"کد پستی نا صحیح است",
+        "messages.birthdateRequired":"تاریخ تولد را وارد نمایید",
+        "messages.emailSent":"ارسال ایمیل با موفقیت انجام شد",
+        "messages.success":"موفق",
+        "messages.error":"خطا",
+        "messages.foreginerDescription":"کاربر گرامی جهت احراز هویت تاریخ تولد و کد اتباع خود راوارد نمایید",
+ "messages.nationalCodeValidate":"کد ملی باید 10 رقم باشد",
+ "messages.postalCodeExistDescription":"کاربر گرامی جهت احراز هویت تاریخ تولد و کد ملی خود راوارد نمایید",
+    };
+</script>
+<script src="./index_files/aaa.js.download"></script>
+<script src="./index_files/app.js.download"></script>
+<!-- <script type="text/javascript">
+    !function(){var i="xMdIjq",a=window,d=document;function g()
+    {var g=d.createElement("script"),s="https://www.goftino.com/widget/"+i,l=localStorage.getItem("goftino_"+i);g.async=!0,g.src=l?s+"?o="+l:s;d.getElementsByTagName("head")[0].appendChild(g);}"complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);}();
+</script> -->
+
+
+</body></html>
